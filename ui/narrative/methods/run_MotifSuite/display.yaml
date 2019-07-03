@@ -1,40 +1,106 @@
 #
 # define display information
 #
-name: Method Name Here
+name: MotifSuite
 
 tooltip: |
-    Perform some kind of method
+    Use the MotifSuite tool to discover sequence motifs upsteam of a specified gene list using multiple algorithms and comparing results.
 
 screenshots: []
 
-icon: icon.png
+icon: null
 
 #
-# define a set of similar apps that might be useful to the user
+# define a set of similar methods that might be useful to the user
 #
 suggestions:
     apps:
         related:
-            [app1, app2]
+            []
         next:
-            [app3, app4]
+            []
+    methods:
+        related:
+            []
+        next:
+            []
 
 #
 # Configure the display and description of parameters
 #
 parameters :
-    parameter_1 :
+    genome_ref :
         ui-name : |
-            First parameter
+            Genome
         short-hint : |
-            The first parameter
-        long-hint  : |
-            The first parameter that needs to be entered to drive the method. This might be the first of many.
+            The genome to evaluate
+    SS_ref :
+        ui-name : |
+            Sequence Set
+        short-hint : |
+            sequences
+    obj_name :
+        ui-name : |
+            Output object name
+        short-hint : |
+            Output object name
+    background :
+        ui-name : |
+            Use Background Model
+        short-hint : |
+            Use genome to create background model    
+    mfmd :
+        ui-name : |
+            MFMD
+        short-hint : |
+            MFMD algorithm for finding motifs
+    homer :
+        ui-name : |
+            Homer
+        short-hint : |
+            Homer algorithm for finding motifs
+    gibbs :
+        ui-name : |
+            Gibbs
+        short-hint : | 
+            Gibbs algorithm for finding motifs
+    meme :
+        ui-name : |
+            MEME
+        short-hint : |
+            MEME algorithm for finding motifs
+    motif_min_length :
+        ui-name : |
+            Minimum motif length
+        short-hint : |
+            Minimum length of motif to search for
+    motif_max_length :
+        ui-name : |
+            Maximum motif length
+        short-hint : |
+            Maximum length of motif to search for
+    threshold :
+        ui-name : |
+            Threshold
+        short-hint : |
+            Threshold for comparing motifs
+    proportion :
+        ui-name : |
+            Proportion  
+        short-hint : |
+            Propotion for comparing motifs
+parameter-groups :
+    background_group :
+        ui-name : |
+            Background
+        short-hint : |
+            Build background model from genome
 
 description : |
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar efficitur felis, quis tincidunt sem congue at. Vivamus ornare feugiat faucibus. Fusce tincidunt mattis nunc, nec varius purus convallis quis. Nulla facilisi. In at magna dolor. Suspendisse sit amet felis at arcu auctor dapibus vitae pharetra dui. Nam semper mi quis tortor fermentum mollis. Donec a arcu pharetra, rutrum dolor vitae, rutrum mauris. Donec ornare fringilla sagittis. Nam laoreet est in elementum malesuada. Vestibulum id mi eget urna hendrerit feugiat. Donec et ultrices nulla. Phasellus diam eros, dapibus at tempus nec, semper vel ante.</p>
+    <p>MOtifSuite is an application that takes an algorithmic approach to discovering novel, ungapped, motifs with recurring and fixed-length patterns, within input sequences. The MotifSuite algorithm search for motifs in four steps: starting points for motifs are predicted using a geometric progression within the motif minimum and maximum length bounds, canidate starting points are then assembled through an expectation maximization algorithm which ranks starting points according to maximum likelihood sense, then MEME further refines the list of found motifs by testing sub-motifs spanned by the constructing consequence columnar structures from the motif list further ranks these results and also shortens found motifs by using a procedure to minimize gaps, the fourth and final step of the MEME algorithm is motif erasing; in which motifs found and identified in good consensus are ‘erased’ from the motif list within the expectation maximization list. </p>
 
-    <p>Curabitur auctor, metus at tristique euismod, odio elit tincidunt neque, a facilisis sem massa convallis dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc ut hendrerit tellus. Nunc lacinia laoreet finibus. Etiam vitae sagittis enim. Fusce consectetur porta est eu pretium. In hac habitasse platea dictumst. Integer pellentesque sit amet sapien id venenatis. Nullam ac risus at orci eleifend aliquet. Vestibulum elit purus, euismod a nibh quis, pellentesque semper leo. Curabitur ullamcorper felis hendrerit nunc egestas, sit amet pharetra sapien porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas hendrerit ipsum a ligula aliquet vestibulum. Duis a ante urna. Aenean ante neque, rhoncus id luctus ut, accumsan vel nunc.</p>
+    <p>Input to Motif Finder MEME start with a feature set, which can either be created through a RNA-seq analysis pipeline, network clustering analysis, or by picking features out from a particular genome. From this feature set, upstream sequences are collected and then the MEME analysis is run on the promoter sequence of length defined by the user. </p>
 
-    <p>Pellentesque accumsan aliquet magna, id consectetur tellus condimentum eu. Suspendisse elit dui, ornare ac leo eget, tincidunt feugiat orci. Maecenas auctor gravida lacinia. Mauris interdum nisi vel gravida varius. Nullam tempus, purus eget posuere aliquet, odio elit semper massa, quis facilisis massa odio vitae lacus. Fusce varius enim a mi vehicula tempus. Maecenas faucibus tellus ipsum, at venenatis ipsum auctor et. Suspendisse sem mi, dignissim id porta efficitur, auctor eget magna. Vivamus varius purus nulla, porttitor euismod lorem cursus quis. Nulla sit amet eros nec sem ultrices pulvinar.</p>
+    <p>This app is part of a series of app stacked to find motifs within upstream sequence regions. They are used in combination with Motif Finder Ensemble to aggregate motif finder results to produce more accurately identified motifs. </p>
+
+    <p>Timothy L. Bailey and Charles Elkan, "Fitting a mixture model by expectation maximization to discover motifs in biopolymers", Proceedings of the Second International Conference on Intelligent Systems for Molecular Biology, pp. 28-36, AAAI Press, Menlo Park, California, 1994. http://www.sdsc.edu/~tbailey/papers/ismb94.pdf </p>

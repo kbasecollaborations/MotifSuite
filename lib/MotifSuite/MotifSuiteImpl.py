@@ -89,13 +89,14 @@ class MotifSuite:
            shutil.rmtree('/kb/module/work/gibbs_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/gibbs_out/')        
 
+        #fix issue for MotifFindermfmd in catalogue  
         #result = mfmd_obj.DiscoverMotifsFromSequenceSet(params)
         #print('MFMD RESULT:')
         #pprint(result)
 
-        #result = ensemble_obj.MotifEnsemble(params)
-        #print('Ensemble RESULT:')
-        #print(result)
+        result = ensemble_obj.MotifEnsemble(params)
+        print('Ensemble RESULT:')
+        print(result)
 
 
         report_info = report.create({'report': {'objects_created':[],
