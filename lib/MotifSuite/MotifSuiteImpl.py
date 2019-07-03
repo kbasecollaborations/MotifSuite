@@ -70,22 +70,23 @@ class MotifSuite:
         print('Homer RESULT:')
         pprint(result)
      
-        #if not os.path.exists('/kb/module/work/homer_out'):
-        #   os.makedirs('/kb/module/work/homer_out')
+        if os.path.exists('/kb/module/work/homer_out'):
+           shutil.rmtree('/kb/module/work/homer_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/homer_out/')
 
         result = meme_obj.DiscoverMotifsFromSequenceSet(params)
         print('MEME RESULT:')
         pprint(result)
-        if not os.path.exists('/kb/module/work/meme_out'):
-           os.makedirs('/kb/module/work/meme_out')
+        
+        if os.path.exists('/kb/module/work/meme_out'):
+           shutil.rmtree('/kb/module/work/meme_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/meme_out/')
 
         result = gibbs_obj.ExtractPromotersFromFeatureSetandDiscoverMotifs(params)
         print('Gibbs RESULT:')
         pprint(result)
-        if not os.path.exists('/kb/module/work/gibbs_out'):
-           os.makedirs('/kb/module/work/gibbs_out')
+        if os.path.exists('/kb/module/work/gibbs_out'):
+           shutil.rmtree('/kb/module/work/gibbs_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/gibbs_out/')        
 
         #result = mfmd_obj.DiscoverMotifsFromSequenceSet(params)
