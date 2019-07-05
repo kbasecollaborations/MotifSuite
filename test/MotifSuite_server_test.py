@@ -76,7 +76,7 @@ class MotifSuiteTest(unittest.TestCase):
             'mask_repeats' : 1,
             'background_group': {'background' : 0, 'genome_ref' : '29476/2/1'},
             'obj_name':'gibbs_obj',
-            'motifset_refs' : ['29716/39/2','29716/10/3','29716/12/4','29716/8/3'],
+            'motifset_refs' : ['29476/42/15','28598/32/31','29476/83/56'],
             'threshold' : .6,
             'proportion':.66,
         }
