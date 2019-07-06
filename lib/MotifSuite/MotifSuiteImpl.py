@@ -95,7 +95,7 @@ class MotifSuite:
         #print('MFMD RESULT:')
         #pprint(result)
         MSU=MotifSuiteUtil()
-        exit(MSU.get_obj_refs())
+        params['motifset_refs']= MSU.get_obj_refs()
 
         result = ensemble_obj.MotifEnsemble(params)
         print('Ensemble RESULT:')
