@@ -67,27 +67,27 @@ class MotifSuite:
         gibbs_obj = MotifFinderGibbs(self.callback_url)
         ensemble_obj = MotifEnsemble(self.callback_url)
 
-        result = homer_obj.DiscoverMotifsFromSequenceSet(params)
+        '''result = homer_obj.DiscoverMotifsFromSequenceSet(params)
         print('Homer RESULT:')
-        pprint(result)
+        pprint(result)'''
      
         '''if os.path.exists('/kb/module/work/homer_out'):
            shutil.rmtree('/kb/module/work/homer_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/homer_out/')
-        '''
+        
         result = meme_obj.DiscoverMotifsFromSequenceSet(params)
         print('MEME RESULT:')
         pprint(result)
-
+        '''
         result = mfmd_obj.DiscoverMotifsFromSequenceSet(params)
         print('MFMD RESULT:')
         pprint(result)
 
-        result = ensemble_obj.MotifEnsemble(params)
+        '''result = ensemble_obj.MotifEnsemble(params)
         print('Ensemble RESULT:')
         print(result)
 
-        '''
+        
         if os.path.exists('/kb/module/work/meme_out'):
            shutil.rmtree('/kb/module/work/meme_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/meme_out/')
