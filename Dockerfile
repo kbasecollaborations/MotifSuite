@@ -8,6 +8,20 @@ MAINTAINER KBase Developer
 
 # RUN apt-get update
 
+RUN apt-get update
+RUN apt-get --yes --force-yes install build-essential
+RUN apt-get install -y r-base
+
+# -----------------------------------------
+
+RUN mkdir -p /kb/deps
+COPY ./deps /kb/deps
+RUN echo Making dependency
+
+RUN \
+  sh /kb/deps/kb_psl/install-pyseqlogo.sh && \
+  sh /kb/deps/kb_mfmd/install-mfmd.sh && \
+  sh /kb/deps/kb_meme/install-meme.sh
 
 # -----------------------------------------
 

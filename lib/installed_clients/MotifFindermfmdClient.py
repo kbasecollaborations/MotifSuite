@@ -17,7 +17,7 @@ except ImportError:
     from baseclient import BaseClient as _BaseClient  # @Reimport
 
 
-class man4ish_guptamfmd(object):
+class MotifFindermfmd(object):
 
     def __init__(
             self, url=None, timeout=30 * 60, user_id=None,
@@ -48,7 +48,7 @@ class man4ish_guptamfmd(object):
         :returns: instance of type "extract_output_params" -> structure:
            parameter "report_name" of String, parameter "report_ref" of String
         """
-        return self._client.run_job('man4ish_guptamfmd.find_motifs',
+        return self._client.run_job('MotifFindermfmd.find_motifs',
                                     [params], self._service_ver, context)
 
     def DiscoverMotifsFromFasta(self, params, context=None):
@@ -59,22 +59,19 @@ class man4ish_guptamfmd(object):
         :returns: instance of type "extract_output_params" -> structure:
            parameter "report_name" of String, parameter "report_ref" of String
         """
-        return self._client.run_job('man4ish_guptamfmd.DiscoverMotifsFromFasta',
+        return self._client.run_job('MotifFindermfmd.DiscoverMotifsFromFasta',
                                     [params], self._service_ver, context)
 
     def DiscoverMotifsFromSequenceSet(self, params, context=None):
         """
         :param params: instance of type "discover_seq_input" -> structure:
            parameter "workspace_name" of String, parameter "genome_ref" of
-           String, parameter "SS_ref" of String, parameter "promoter_length"
-           of Long, parameter "motif_min_length" of Long, parameter
-           "motif_max_length" of Long, parameter "obj_name" of String,
-           parameter "background" of Long, parameter "mask_repeats" of Long,
-           parameter "background_group" of mapping from String to String
+           String, parameter "SS_ref" of String, parameter "prb" of Double,
+           parameter "motif_length" of Long, parameter "obj_name" of String
         :returns: instance of type "extract_output_params" -> structure:
            parameter "report_name" of String, parameter "report_ref" of String
         """
-        return self._client.run_job('man4ish_guptamfmd.DiscoverMotifsFromSequenceSet',
+        return self._client.run_job('MotifFindermfmd.DiscoverMotifsFromSequenceSet',
                                     [params], self._service_ver, context)
 
     def BuildFastaFromSequenceSet(self, params, context=None):
@@ -85,9 +82,9 @@ class man4ish_guptamfmd(object):
         :returns: instance of type "BuildSeqOut" -> structure: parameter
            "fasta_outpath" of String
         """
-        return self._client.run_job('man4ish_guptamfmd.BuildFastaFromSequenceSet',
+        return self._client.run_job('MotifFindermfmd.BuildFastaFromSequenceSet',
                                     [params], self._service_ver, context)
 
     def status(self, context=None):
-        return self._client.run_job('man4ish_guptamfmd.status',
+        return self._client.run_job('MotifFindermfmd.status',
                                     [], self._service_ver, context)
