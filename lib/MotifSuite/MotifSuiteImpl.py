@@ -9,7 +9,7 @@ from installed_clients.MotifFinderHomerClient import MotifFinderHomer
 from installed_clients.MotifFinderMEMEClient import MotifFinderMEME
 from installed_clients.MotifFinderGibbsClient import MotifFinderGibbs
 from installed_clients.MotifEnsembleClient import MotifEnsemble
-from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
+#from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
 from pprint import pprint, pformat
 import shutil, sys  
 #END_HEADER
