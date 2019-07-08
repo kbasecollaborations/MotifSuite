@@ -15,7 +15,6 @@ RUN apt-get install -y r-base
 # -----------------------------------------
 
 RUN mkdir -p /kb/deps
-COPY ./deps /kb/deps
 RUN echo Making dependency
 
 RUN \
