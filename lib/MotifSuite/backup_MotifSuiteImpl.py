@@ -9,6 +9,7 @@ from installed_clients.MotifFinderHomerClient import MotifFinderHomer
 from installed_clients.MotifFinderMEMEClient import MotifFinderMEME
 from installed_clients.MotifFinderGibbsClient import MotifFinderGibbs
 from installed_clients.MotifEnsembleClient import MotifEnsemble
+#from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
 from pprint import pprint, pformat
 import shutil, sys  
 #END_HEADER
@@ -66,9 +67,50 @@ class MotifSuite:
         gibbs_obj = MotifFinderGibbs(self.callback_url)
         ensemble_obj = MotifEnsemble(self.callback_url)
 
+        '''result = homer_obj.DiscoverMotifsFromSequenceSet(params)
+        print('Homer RESULT:')
+        pprint(result)'''
+     
+        '''if os.path.exists('/kb/module/work/homer_out'):
+           shutil.rmtree('/kb/module/work/homer_out')
+        shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/homer_out/')
+        
+        result = meme_obj.DiscoverMotifsFromSequenceSet(params)
+        print('MEME RESULT:')
+        pprint(result)
+        '''
         result = mfmd_obj.DiscoverMotifsFromSequenceSet(params)
         print('MFMD RESULT:')
         pprint(result)
+
+        '''result = ensemble_obj.MotifEnsemble(params)
+        print('Ensemble RESULT:')
+        print(result)
+
+        
+        if os.path.exists('/kb/module/work/meme_out'):
+           shutil.rmtree('/kb/module/work/meme_out')
+        shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/meme_out/')
+
+        result = gibbs_obj.ExtractPromotersFromFeatureSetandDiscoverMotifs(params)
+        print('Gibbs RESULT:')
+        pprint(result)
+        if os.path.exists('/kb/module/work/gibbs_out'):
+           shutil.rmtree('/kb/module/work/gibbs_out')
+        shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/gibbs_out/')
+
+        #fix issue for MotifFindermfmd in catalogue  
+        result = mfmd_obj.DiscoverMotifsFromSequenceSet(params)
+        print('MFMD RESULT:')
+        pprint(result)
+        
+        MSU=MotifSuiteUtil()
+        params['motifset_refs']= MSU.get_obj_refs()
+
+        result = ensemble_obj.MotifEnsemble(params)
+        print('Ensemble RESULT:')
+        print(result)
+        '''
     
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': params['workspace_name']},
