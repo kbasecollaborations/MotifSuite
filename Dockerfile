@@ -14,13 +14,7 @@ RUN apt-get install -y r-base
 
 # -----------------------------------------
 
-RUN mkdir -p /kb/deps
-RUN echo Making dependency
 
-RUN \
-  sh /kb/deps/kb_psl/install-pyseqlogo.sh && \
-  sh /kb/deps/kb_mfmd/install-mfmd.sh && \
-  sh /kb/deps/kb_meme/install-meme.sh
 
 # -----------------------------------------
 
