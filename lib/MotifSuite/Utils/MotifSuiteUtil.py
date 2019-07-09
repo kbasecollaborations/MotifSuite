@@ -6,21 +6,31 @@ import subprocess
 class MotifSuiteUtil:
   def __init__(self):
       pass
+
   def get_obj_refs(self):
-      #path="/home/manish/Desktop/reorganization/MotifSuite/test_local/workdir/"
-      path="/kb/module/work/"
+      path="/kb/module/work/tmp/"
       obj_refs = []
-      memef = open(path+"meme_out/obj.name", "r")
-      obj_refs.append((memef.readline()).rstrip())
-      memef.close()
+      #print(path + "meme_out/meme_obj.txt")
+      if(os.path.isfile(path + "meme_out/meme_obj.txt")):
+         print("yes")
+         memef = open(path+"meme_out/meme_obj.txt", "r")
+         obj_refs.append((memef.readline()).rstrip())
+         memef.close()
 
-      homerf = open(path+"homer_out/obj.name", "r")
-      obj_refs.append((homerf.readline()).rstrip())
-      homerf.close()
+      if(os.path.isfile(path + "homer_out/homer_obj.txt")):
+         homerf = open(path+"homer_out/homer_obj.txt", "r")
+         obj_refs.append((homerf.readline()).rstrip())
+         homerf.close()
+     
+      if(os.path.isfile(path + "gibbs_out/gibbs_obj.txt")):
+         gibbsf = open(path+"gibbs_out/gibbs_obj.txt", "r")
+         obj_refs.append((gibbsf.readline()).rstrip())
+         gibbsf.close()
 
-      gibbsf = open(path+"gibbs_out/obj.name", "r")
-      obj_refs.append((gibbsf.readline()).rstrip())
-      gibbsf.close()
+      if(os.path.isfile(path + "mfmd_out/mfmd_obj.txt")):
+         mfmdf = open(path+"mfmd_out/mfmd_obj.txt", "r")
+         obj_refs.append((mfmd.readline()).rstrip())
+         mfmd.close()   
 
       return obj_refs
 

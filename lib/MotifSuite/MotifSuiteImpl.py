@@ -9,7 +9,7 @@ from installed_clients.MotifFinderHomerClient import MotifFinderHomer
 from installed_clients.MotifFinderMEMEClient import MotifFinderMEME
 from installed_clients.MotifFinderGibbsClient import MotifFinderGibbs
 from installed_clients.MotifEnsembleClient import MotifEnsemble
-#from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
+from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
 from pprint import pprint, pformat
 import shutil, sys  
 #END_HEADER
@@ -107,10 +107,10 @@ class MotifSuite:
         if os.path.exists('/kb/module/work/gibbs_out'):
            shutil.rmtree('/kb/module/work/gibbs_out')
         shutil.copytree('/kb/module/work/tmp/', '/kb/module/work/gibbs_out/')
-                
-        #MSU=MotifSuiteUtil()
-        #params['motifset_refs']= MSU.get_obj_refs()
-        '''
+        '''        
+        MSU=MotifSuiteUtil()
+        params['motifset_refs']= MSU.get_obj_refs()
+
         result = ensemble_obj.MotifEnsemble(params)
         print('Ensemble RESULT:')
         print(result)
