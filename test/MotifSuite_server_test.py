@@ -64,7 +64,8 @@ class MotifSuiteTest(unittest.TestCase):
         # Check returned data with
         # self.assertEqual(ret[...], ...) or other unittest methods
         params = {
-            'workspace_name': 'man4ish_gupta:narrative_1559788829014',
+            #'workspace_name': 'man4ish_gupta:narrative_1559788829014',
+             'workspace_name': 'man4ish_gupta:narrative_1560302619565',
             'genome_ref': '29476/2/1',
             'SS_ref' : '29476/5/1',
             'featureSet_ref': '29476/36/2',

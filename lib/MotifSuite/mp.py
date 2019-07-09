@@ -1,38 +1,41 @@
-# multiproc_test.py
+from multiprocessing import Process
 
-import random
-import multiprocessing
+def func1(name='1'):
+    print("function, %s" % name)
+    for i in range(1,100000000):
+        x=i*i
+
+def func2(name='2'):
+    print("function, %s" % name)
+    for j in range(1,100000000):
+        y=j*j
+
+def func3(name='3'):
+    print("function, %s" % name)
+    for i in range(1,100000000):
+        x=i*i
+
+def func4(name='4'):
+    print("function, %s" % name)
+    for j in range(1,100000000):
+        y=j*j
 
 
-def list_append(count, id, out_list):
-	"""
-	Creates an empty list and then appends a
-	random number to the list 'count' number
-	of times. A CPU-heavy operation!
-	"""
-	for i in range(count):
-		out_list.append(random.random())
-
-if __name__ == "__main__":
-	size = 10000000   # Number of random numbers to add
-	procs = 8   # Number of processes to create
-
-	# Create a list of jobs and then iterate through
-	# the number of processes appending each process to
-	# the job list
-	jobs = []
-	for i in range(0, procs):
-		out_list = list()
-		process = multiprocessing.Process(target=list_append,
-			                              args=(size, i, out_list))
-		jobs.append(process)
-
-	# Start the processes (i.e. calculate the random number lists)
-	for j in jobs:
-		j.start()
-
-	# Ensure all of the processes have finished
-	for j in jobs:
-		j.join()
-
-	print ("List processing complete.")
+p1 = Process(target=func1)
+p1.start()
+p1.join()
+p2 = Process(target=func2)
+p2.start()
+p2.join()
+p3 = Process(target=func3)
+p3.start()
+p3.join()
+p4 = Process(target=func4)
+p4.start()
+p4.join()
+'''
+p1.join()
+p2.join()
+p3.join()
+p4.join()
+'''
