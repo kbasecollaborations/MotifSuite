@@ -30,7 +30,7 @@ class MotifSuiteUtil:
       if(os.path.isfile(path + "mfmd_out/mfmd_obj.txt")):
          mfmdf = open(path+"mfmd_out/mfmd_obj.txt", "r")
          obj_refs.append((mfmdf.readline()).rstrip())
-         mfmd.close()   
+         mfmdf.close()   
 
       return obj_refs
 
