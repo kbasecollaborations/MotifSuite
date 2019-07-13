@@ -89,6 +89,21 @@ class MotifFinderGibbs(object):
         return self._client.run_job('MotifFinderGibbs.DiscoverMotifsFromFasta',
                                     [params], self._service_ver, context)
 
+    def DiscoverMotifsFromSequenceSet(self, params, context=None):
+        """
+        :param params: instance of type "discover_seq_input" -> structure:
+           parameter "workspace_name" of String, parameter "genome_ref" of
+           String, parameter "SS_ref" of String, parameter "promoter_length"
+           of Long, parameter "motif_min_length" of Long, parameter
+           "motif_max_length" of Long, parameter "obj_name" of String,
+           parameter "background" of Long, parameter "mask_repeats" of Long,
+           parameter "background_group" of mapping from String to String
+        :returns: instance of type "extract_output_params" -> structure:
+           parameter "report_name" of String, parameter "report_ref" of String
+        """
+        return self._client.run_job('MotifFinderGibbs.DiscoverMotifsFromSequenceSet',
+                                    [params], self._service_ver, context)
+
     def status(self, context=None):
         return self._client.run_job('MotifFinderGibbs.status',
                                     [], self._service_ver, context)
