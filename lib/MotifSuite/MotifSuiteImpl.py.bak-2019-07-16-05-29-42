@@ -31,8 +31,8 @@ class MotifSuite:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = "https://github.com/man4ish/MotifSuite.git"
-    GIT_COMMIT_HASH = "39043497c3d79bb47c0342924a23573a6e763161"
+    GIT_URL = ""
+    GIT_COMMIT_HASH = ""
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -52,16 +52,7 @@ class MotifSuite:
     def run_MotifSuite(self, ctx, params):
         """
         This example function accepts any number of parameters and returns results in a KBaseReport
-        :param params: instance of mapping from String to type
-           "motifsuite_seq_input" -> structure: parameter "workspace_name" of
-           String, parameter "genome_ref" of String, parameter "SS_ref" of
-           String, parameter "promoter_length" of Long, parameter
-           "motif_min_length" of Long, parameter "motif_max_length" of Long,
-           parameter "obj_name" of String, parameter "prb" of Double,
-           parameter "motif_length" of Long, parameter "background" of Long,
-           parameter "mask_repeats" of Long, parameter "background_group" of
-           mapping from String to String, parameter "threshold" of Double,
-           parameter "proportion" of Double
+        :param params: instance of mapping from String to unspecified object
         :returns: instance of type "ReportResults" -> structure: parameter
            "report_name" of String, parameter "report_ref" of String
         """
