@@ -68,6 +68,8 @@ class MotifSuite:
         # return variables are: output
         #BEGIN run_MotifSuite
         report = KBaseReport(self.callback_url)
+        mfmd_obj = MotifFindermfmd(self.callback_url)
+        p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': params['workspace_name']},
                                                 'workspace_name': params['workspace_name']})
