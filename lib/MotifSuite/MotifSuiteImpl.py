@@ -67,7 +67,10 @@ class MotifSuite:
         # ctx is the context object
         # return variables are: output
         #BEGIN run_MotifSuite
-
+        report_info = report.create({'report': {'objects_created':[],
+                                                'text_message': params['workspace_name']},
+                                                'workspace_name': params['workspace_name']})
+ 
         output = {
             'report_name': params,
             'report_ref': report_info['ref'],
