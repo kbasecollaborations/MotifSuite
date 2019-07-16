@@ -29,6 +29,7 @@ module MotifSuite {
     /*
         This example function accepts any number of parameters and returns results in a KBaseReport
     */
-    funcdef run_MotifSuite(mapping<string, motifsuite_seq_input> params) returns (ReportResults output) authentication required;
+    funcdef run_MotifSuite(motifsuite_seq_input params) returns (ReportResults output) authentication required; 
+    /*funcdef run_MotifSuite(mapping<string, motifsuite_seq_input> params) returns (ReportResults output) authentication required;*/
 
 };
