@@ -72,7 +72,7 @@ class MotifSuite:
             'report_name': params,
             'report_ref': report_info['ref'],
         }
-        report = KBaseReport(self.callback_url)
+        '''report = KBaseReport(self.callback_url)
         mfmd_obj = MotifFindermfmd(self.callback_url)
         homer_obj = MotifFinderHomer(self.callback_url)
         meme_obj =  MotifFinderMEME(self.callback_url)
@@ -107,7 +107,7 @@ class MotifSuite:
     
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': params['workspace_name']},
-        '''                                        'workspace_name': params['workspace_name']})
+                                                'workspace_name': params['workspace_name']})
         output = {
             'report_name': report_info['name'],
             'report_ref': report_info['ref'],
