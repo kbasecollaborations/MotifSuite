@@ -74,7 +74,8 @@ class MotifSuite:
         meme_obj =  MotifFinderMEME(self.callback_url)
         gibbs_obj = MotifFinderGibbs(self.callback_url)
         ensemble_obj = MotifEnsemble(self.callback_url)
-        
+        exit(params)
+
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
         p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
@@ -83,7 +84,7 @@ class MotifSuite:
         p3.start()
         p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p4.start()
-
+        
         p1.join()
         p2.join()
         p3.join()
