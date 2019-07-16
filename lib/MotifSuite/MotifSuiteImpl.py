@@ -67,14 +67,13 @@ class MotifSuite:
         # ctx is the context object
         # return variables are: output
         #BEGIN run_MotifSuite
-       
+        exit("data")      
         report = KBaseReport(self.callback_url)
         mfmd_obj = MotifFindermfmd(self.callback_url)
         homer_obj = MotifFinderHomer(self.callback_url)
         meme_obj =  MotifFinderMEME(self.callback_url)
         gibbs_obj = MotifFinderGibbs(self.callback_url)
         ensemble_obj = MotifEnsemble(self.callback_url)
-        exit(params)
 
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
