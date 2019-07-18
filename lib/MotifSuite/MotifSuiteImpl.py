@@ -76,15 +76,15 @@ class MotifSuite:
 
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
-        p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p2.start()
+        #p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        #p2.start()
         p3 = Process(target=meme_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p3.start()
         p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p4.start()
  
         p1.join()
-        p2.join()
+        #p2.join()
         p3.join()
         p4.join()
 
