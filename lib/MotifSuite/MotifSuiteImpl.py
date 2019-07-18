@@ -69,9 +69,14 @@ class MotifSuite:
         #BEGIN run_MotifSuite
         report = KBaseReport(self.callback_url)
         mfmd_obj = MotifFindermfmd(self.callback_url)
+        homer_obj = MotifFinderHomer(self.callback_url)
+        p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        p1.start()
         p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p2.start()
+        p1.join()
         p2.join()
+
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': params['workspace_name']},
                                                 'workspace_name': params['workspace_name']})
