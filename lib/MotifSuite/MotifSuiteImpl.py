@@ -87,6 +87,14 @@ class MotifSuite:
         p3.join()
         p4.join()
 
+        MSU=MotifSuiteUtil()
+        params['motifset_refs']= MSU.get_obj_refs()
+
+        result = ensemble_obj.MotifEnsemble(params)
+        print('Ensemble RESULT:')
+        print(result)
+
+
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': params['workspace_name']},
                                                 'workspace_name': params['workspace_name']})
