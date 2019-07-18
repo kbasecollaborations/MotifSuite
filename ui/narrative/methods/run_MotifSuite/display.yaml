@@ -89,6 +89,17 @@ parameters :
             Proportion  
         short-hint : |
             Propotion for comparing motifs
+    motif_length :
+        ui-name : |
+            Length for mfmd
+        short-hint : |
+            Length of mfmd
+    prb :
+        ui-name : |
+            Probability
+        short-hint : |
+            Probability
+
 parameter-groups :
     background_group :
         ui-name : |

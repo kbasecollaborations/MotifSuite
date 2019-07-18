@@ -127,6 +127,30 @@
                 "min_integer" : 0
             }
         },
+	{
+            "id": "motif_length",
+            "optional": false,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ "10" ],
+            "field_type": "text",
+            "text_options": {
+                "validate_as": "int",
+                "min_integer" : 0
+            }
+        },
+        {
+            "id": "prb",
+            "optional": false,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ "0.05" ],
+            "field_type": "text",
+            "text_options": {
+                "validate_as": "float",
+                "min_integer" : 0
+            }
+        },
         {
             "id": "threshold",
             "optional": false,
@@ -190,8 +214,17 @@
                     "input_parameter": "motif_max_length",
                     "target_property": "motif_max_length"
 
-                }
-                ,
+                },
+                {
+                    "input_parameter": "motif_length",
+                    "target_property": "motif_length"
+
+                },
+                {
+                    "input_parameter": "prb",
+                    "target_property": "prb"
+
+                },
                 {
                     "input_parameter": "threshold",
                     "target_property": "threshold"
