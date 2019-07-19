@@ -32,7 +32,7 @@ class MotifSuite:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/man4ish/MotifSuite.git"
-    GIT_COMMIT_HASH = "4e6b1042c7c6054022ab85fae582e76ef70b2802"
+    GIT_COMMIT_HASH = "82094eec2bf903033ea232dbe9ff1062ea119bb2"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -76,15 +76,15 @@ class MotifSuite:
 
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
-        p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p2.start()
+        #p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        #p2.start()
         p3 = Process(target=meme_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p3.start()
         p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p4.start()
  
         p1.join()
-        p2.join()
+        #p2.join()
         p3.join()
         p4.join()
 
@@ -152,7 +152,6 @@ class MotifSuite:
                              'output is not type dict as required.')
         # return the results
         return [output]
-
     def status(self, ctx):
         #BEGIN_STATUS
         returnVal = {'state': "OK",
