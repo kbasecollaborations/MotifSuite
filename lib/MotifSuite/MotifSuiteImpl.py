@@ -8,6 +8,8 @@ from installed_clients.MotifFindermfmdClient import MotifFindermfmd
 from installed_clients.MotifFinderHomerClient import MotifFinderHomer
 from installed_clients.MotifFinderMEMEClient import MotifFinderMEME
 from installed_clients.MotifFinderGibbsClient import MotifFinderGibbs
+from installed_clients.MotifFinderMdscanClient import MotifFinderMdscan
+from installed_clients.MotifFinderSamplerClient import MotifFinderSampler
 from installed_clients.MotifEnsembleClient import MotifEnsemble
 from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
 from pprint import pprint, pformat
@@ -73,24 +75,40 @@ class MotifSuite:
         meme_obj =  MotifFinderMEME(self.callback_url)
         gibbs_obj = MotifFinderGibbs(self.callback_url)
         ensemble_obj = MotifEnsemble(self.callback_url)
-
+        mdscan_obj = MotifFinderMdscan(self.callback_url)
+        sampler_obj =  MotifFinderSampler(self.callback_url)
+        
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
+        #p1.join()
         p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p2.start()
+        #p2.join()
         p3 = Process(target=meme_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p3.start()
-        p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p4.start()
- 
         p1.join()
         p2.join()
         p3.join()
+
+        p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        p4.start()
+        #p4.join()
+        p5 = Process(target=mdscan_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        p5.start()
+        #p5.join()
+        p6 = Process(target=sampler_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        p6.start()
+        #p6.join()
+ 
         p4.join()
+        p5.join()
+        p6.join()
 
         MSU=MotifSuiteUtil()
         params['motifset_refs']= MSU.get_obj_refs()
-
+        #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/135','29716/72/136']
+        #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/136']
+        print(params['motifset_refs'])
         result = ensemble_obj.MotifEnsemble(params)
         print('Ensemble RESULT:')
         print(result)
@@ -104,46 +122,7 @@ class MotifSuite:
             'report_name': params,
             'report_ref': report_info['ref'],
         }
-        '''report = KBaseReport(self.callback_url)
-        mfmd_obj = MotifFindermfmd(self.callback_url)
-        homer_obj = MotifFinderHomer(self.callback_url)
-        meme_obj =  MotifFinderMEME(self.callback_url)
-        gibbs_obj = MotifFinderGibbs(self.callback_url)
-        ensemble_obj = MotifEnsemble(self.callback_url)
-
-        p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p1.start()
-        p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p2.start()
-        p3 = Process(target=meme_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p3.start()
-        p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
-        p4.start()
         
-        p1.join()
-        p2.join()
-        p3.join()
-        p4.join()
-
-        
-        
-        
-        MSU=MotifSuiteUtil()
-        params['motifset_refs']= MSU.get_obj_refs()
-
-        result = ensemble_obj.MotifEnsemble(params)
-        print('Ensemble RESULT:')
-        print(result)
-        
-
-    
-        report_info = report.create({'report': {'objects_created':[],
-                                                'text_message': params['workspace_name']},
-                                                'workspace_name': params['workspace_name']})
-        output = {
-            'report_name': report_info['name'],
-            'report_ref': report_info['ref'],
-        }'''
         #END run_MotifSuite
 
         # At some point might do deeper type checking...

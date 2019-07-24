@@ -22,8 +22,8 @@ class MotifSuiteUtil:
          obj_refs.append((homerf.readline()).rstrip())
          homerf.close()
      
-      if(os.path.isfile(path + "gibbs_out/gibbs_obj.txt")):
-         gibbsf = open(path+"gibbs_out/gibbs_obj.txt", "r")
+      if(os.path.isfile(path + "gibbs/gibbs_obj.txt")):
+         gibbsf = open(path+"gibbs/gibbs_obj.txt", "r")
          obj_refs.append((gibbsf.readline()).rstrip())
          gibbsf.close()
 
@@ -31,6 +31,16 @@ class MotifSuiteUtil:
          mfmdf = open(path+"mfmd_out/mfmd_obj.txt", "r")
          obj_refs.append((mfmdf.readline()).rstrip())
          mfmdf.close()   
+
+      if(os.path.isfile(path + "mdscan_out/mdscan_obj.txt")):
+         mdscanf = open(path+"mdscan_out/mdscan_obj.txt", "r")
+         obj_refs.append((mdscanf.readline()).rstrip())
+         mdscanf.close() 
+  
+      if(os.path.isfile(path + "sampler_out/sampler_obj.txt")):
+         samplerf = open(path+"sampler_out/sampler_obj.txt", "r")
+         obj_refs.append((samplerf.readline()).rstrip())
+         samplerf.close()   
 
       return obj_refs
 
