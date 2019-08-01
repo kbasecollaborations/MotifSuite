@@ -2,7 +2,6 @@
 #BEGIN_HEADER
 import logging
 import os
-import uuid
 from multiprocessing import Process
 from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.MotifFindermfmdClient import MotifFindermfmd
@@ -16,7 +15,6 @@ from MotifSuite.Utils.MotifSuiteUtil import MotifSuiteUtil
 from MotifSuite.Utils.MakeNewReport import MakeNewReport
 from MotifSuite.Utils.DownloadMotifSets import DownloadMotifSets
 from MotifSuite.Utils.FastaUtils import FastaUtils
-from installed_clients.DataFileUtilClient import DataFileUtil
 from copy import deepcopy
 from pprint import pprint, pformat
 import shutil, sys  
@@ -57,7 +55,7 @@ class MotifSuite:
         pass
 
 
-  def run_MotifSuite(self, ctx, params):
+def run_MotifSuite(self, ctx, params):
         """
         This example function accepts any number of parameters and returns results in a KBaseReport
         :param params: instance of type "motifsuite_seq_input" -> structure:
@@ -84,7 +82,7 @@ class MotifSuite:
         mdscan_obj = MotifFinderMdscan(self.callback_url)
         sampler_obj =  MotifFinderSampler(self.callback_url)
         
-        p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
+        '''p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
         p1.join()
 
@@ -106,19 +104,14 @@ class MotifSuite:
 
         p6 = Process(target=sampler_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p6.start()
-        p6.join()
+        p6.join()'''
  
         
         MSU=MotifSuiteUtil()
         params['motifset_refs']= MSU.get_obj_refs()
-        #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/135','29716/72/136']
-        #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133']
+        params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/135','29716/72/136']
+        #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/136']
         print(params['motifset_refs'])
-        #result = ensemble_obj.MotifEnsemble(params)
-        #print('Ensemble RESULT:')
-        #print(result)
-
-
         dms=DownloadMotifSets()
         MotifSetDict = dms.DownloadMotifSet(params['motifset_refs'],self.callback_url)
 
@@ -228,16 +221,15 @@ class MotifSuite:
         report_info = report.create_extended_report(reportObj)
         output = { 'report_name': report_info['name'], 'report_ref': report_info['ref'] }
 
-        
-        #END run_MotifSuite
+        #END MotifEnsemble
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
-            raise ValueError('Method run_MotifSuite return value ' +
-                             'output is not type dict as required.')
+            raise ValueError('Method MotifEnsemble return value ' +
+                             'out is not type dict as required.')
         # return the results
         return [output]
-
+        
     def status(self, ctx):
         #BEGIN_STATUS
         returnVal = {'state': "OK",
