@@ -80,30 +80,29 @@ class MotifSuite:
         
         p1 = Process(target=homer_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p1.start()
-        #p1.join()
+        p1.join()
+
         p2 = Process(target=mfmd_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p2.start()
-        #p2.join()
+        p2.join()
+
         p3 = Process(target=meme_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p3.start()
-        p1.join()
-        p2.join()
         p3.join()
-
+        
         p4 = Process(target=gibbs_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p4.start()
-        #p4.join()
+        p4.join()
+
         p5 = Process(target=mdscan_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p5.start()
-        #p5.join()
+        p5.join()
+
         p6 = Process(target=sampler_obj.DiscoverMotifsFromSequenceSet, args=(params,))
         p6.start()
-        #p6.join()
- 
-        p4.join()
-        p5.join()
         p6.join()
-
+ 
+        
         MSU=MotifSuiteUtil()
         params['motifset_refs']= MSU.get_obj_refs()
         #params['motifset_refs'] =['29716/72/131','29716/72/132','29716/72/133','29716/72/134','29716/72/135','29716/72/136']
