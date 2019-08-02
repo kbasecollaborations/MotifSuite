@@ -69,6 +69,16 @@ parameters :
             MEME
         short-hint : |
             MEME algorithm for finding motifs
+    motifsampler :
+        ui-name : |
+            Motif Sampler
+        short-hint : |
+            Motif Sampler algorithm for finding motifs
+    mdscan :
+        ui-name : |
+            MdScan
+        short-hint : |
+            Mdscan algorithm for finding motifs        
     motif_min_length :
         ui-name : |
             Minimum motif length

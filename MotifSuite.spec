@@ -17,6 +17,12 @@ module MotifSuite {
         int motif_max_length;
         string obj_name;
         float prb;
+        int gibbs;
+        int meme;
+        int homer;
+        int mdscan;
+        int motifsampler;
+        int mfmd;
         int motif_length;
         int background;
         int mask_repeats;

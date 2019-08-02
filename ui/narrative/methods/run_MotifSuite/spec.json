@@ -103,6 +103,30 @@
                 "unchecked_value": 0
             }
         },
+	{
+            "id": "motifsampler",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "checkbox",
+            "checkbox_options": {
+                "checked_value": 1,
+                "unchecked_value": 0
+            }
+        },
+        {
+            "id": "mdscan",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "checkbox",
+            "checkbox_options": {
+                "checked_value": 1,
+                "unchecked_value": 0
+            }
+        },
         {
             "id": "motif_min_length",
             "optional": false,
@@ -271,6 +295,14 @@
                 {
                   "input_parameter": "meme",
                   "target_property": "meme"
+                },
+		{
+                  "input_parameter": "motifsampler",
+                  "target_property": "motifsampler"
+                },
+                {
+                  "input_parameter": "mdscan",
+                  "target_property": "mdscan"
                 },
                 {
                   "input_parameter": "mask_repeats",
