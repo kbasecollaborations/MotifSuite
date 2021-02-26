@@ -6,6 +6,12 @@ class DownloadMotifSets:
       pass
 
   def DownloadMotifSet(self, refList,callback):
+      '''
+
+      :param refList:
+      :param callback:
+      :return:
+      '''
       MotifSetDict = {}
       dfu = DataFileUtil(callback)
       for ref in refList:

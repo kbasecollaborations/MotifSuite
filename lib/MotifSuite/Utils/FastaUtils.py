@@ -11,6 +11,12 @@ class FastaUtils:
       pass
 
   def merge(self, motifs,MSD):
+      '''
+
+      :param motifs:
+      :param MSD:
+      :return:
+      '''
       for motif in motifs:
           newMotif = deepcopy(MSD[motif[0]]['Motifs'][motif[1]])
           break;
@@ -18,6 +24,11 @@ class FastaUtils:
 
 
   def ParseTomTom(self, path):
+      '''
+
+      :param path:
+      :return:
+      '''
 
       pval = 0.0
       with open(path + '/tomtom.tsv','r') as tomtomfile:
@@ -31,11 +42,24 @@ class FastaUtils:
       return pval
 
   def RunTomTom(self,path1,path2,outpath):
+      '''
+
+      :param path1:
+      :param path2:
+      :param outpath:
+      :return:
+      '''
       tomtom_command ='/kb/deployment/bin/meme/bin/tomtom -oc ' + outpath + ' ' + path1 + ' ' + path2
       os.system(tomtom_command)
       return
 
   def WriteMotifAsMEME(self, motif,path):
+      '''
+
+      :param motif:
+      :param path:
+      :return:
+      '''
       tempAlph = ['A','C','G','T']
       MEMEText = 'MEME version 4\n\n'
       sortedAlph = tempAlph
@@ -72,6 +96,12 @@ class FastaUtils:
       return
 
   def PWMtoPSSM(self, BPmotif,motif):
+      '''
+
+      :param BPmotif:
+      :param motif:
+      :return:
+      '''
       background = {'A':0.25,'C':0.25,'G':0.25,'T':0.25}
 
       pssm = BPmotif.pwm.log_odds(background)
@@ -90,6 +120,12 @@ class FastaUtils:
       return pssm
 
   def MotifToBP(self, motif, name):
+      '''
+
+      :param motif:
+      :param name:
+      :return:
+      '''
       motifStr = '>' + name + '\n'
       motifStr += 'A ' + str(motif['PWM']['A']).replace(',','') + '\n'
       motifStr += 'C ' + str(motif['PWM']['C']).replace(',','') + '\n'
@@ -101,6 +137,13 @@ class FastaUtils:
       return motif
 
   def CompareMotifsBP(self, motif1, motif2, threshold):
+      '''
+
+      :param motif1:
+      :param motif2:
+      :param threshold:
+      :return:
+      '''
       BPmotif1 = self.MotifToBP(motif1,'motif1')
       BPmotif2 = self.MotifToBP(motif2,'motif2')
 
@@ -128,6 +171,12 @@ class FastaUtils:
       return False
 
   def CompareMotifs(self, motif1, motif2):
+      '''
+
+      :param motif1:
+      :param motif2:
+      :return:
+      '''
 
       pvalThresh = 1.0e-10
       path1 = '/kb/module/work/tmp/motif1.txt'

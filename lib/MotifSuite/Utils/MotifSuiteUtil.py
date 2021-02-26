@@ -8,6 +8,10 @@ class MotifSuiteUtil:
       pass
 
   def get_obj_refs(self):
+      '''
+
+      :return:
+      '''
       path="/kb/module/work/tmp/"
       obj_refs = []
       #print(path + "meme_out/meme_obj.txt")
